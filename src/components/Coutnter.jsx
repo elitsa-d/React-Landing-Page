@@ -1,33 +1,25 @@
+import Stat from "./Stat.jsx";
+
 export default function Counter() {
+  const statItems = [
+    { stat: 126, title: "Projects" },
+    { stat: 63, title: "Happy Clients" },
+    { stat: 18, title: "Award Wins" },
+    { stat: 27, title: "Countries", last: true },
+  ];
   return (
     <section className="counter">
       <div className="content">
         <div className="container">
           <div className="row">
-            <div className="col-lg-3 col-md-6 col-sm-12">
-              <div className="count-item decoration-bottom">
-                <strong>126</strong>
-                <span>Projects</span>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-12">
-              <div className="count-item decoration-top">
-                <strong>63</strong>
-                <span>Happy Clients</span>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-12">
-              <div className="count-item decoration-bottom">
-                <strong>18</strong>
-                <span>Awards Wins</span>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-12">
-              <div className="count-item">
-                <strong>27</strong>
-                <span>Countries</span>
-              </div>
-            </div>
+            {statItems.map((item) => (
+              <Stat
+                key={item.stat}
+                stat={item.stat}
+                title={item.title}
+                last={item.last}
+              />
+            ))}
           </div>
         </div>
       </div>
